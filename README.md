@@ -1,11 +1,11 @@
 # SpaceX Launch Data
 
-> React, GraphQL, Apollo Client
+## React, GraphQL, Apollo Client
 
+### Install dependencies (server & client)
 ```shell
-# Install dependencies (server & client)
-npm install
-cd client && npm install
+npm i
+cd client && npm i
 
 # Run server & client (:3000 & :5000)
 npm run dev
@@ -18,6 +18,6 @@ npm run client
 
 # Build for production (Builds into server ./public)
 cd client && npm run build
-
-# Graphiql - http://localhost:5000/graphql
 ```
+
+#### Graphiql - http://localhost:5000/graphql
