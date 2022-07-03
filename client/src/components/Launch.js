@@ -1,7 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import classNames from "classnames";
 import Spinner from "./Spinner";
 
