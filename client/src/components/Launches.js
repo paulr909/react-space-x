@@ -1,6 +1,5 @@
 import React from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { gql, useQuery } from "@apollo/client";
 import LaunchItem from "./LaunchItem";
 import Spinner from "./Spinner";
 
@@ -16,30 +15,19 @@ const LAUNCHES_QUERY = gql`
 `;
 
 const Launches = () => {
-  return (
-    <>
-      <h1 className="display-4 mt-5">Launch Data</h1>
-      <Query query={LAUNCHES_QUERY}>
-        {({ loading, error, data }) => {
-          if (loading)
-            return (
-              <div className="mt-1 text-center">
-                <Spinner />
-              </div>
-            );
-          if (error) console.log(error);
+  const { loading, error, data } = useQuery(LAUNCHES_QUERY);
 
-          return (
-            <>
-              {data.launches.map((launch) => (
-                <LaunchItem key={launch.flight_number} launch={launch} />
-              ))}
-            </>
-          );
-        }}
-      </Query>
-    </>
-  );
+  if (loading)
+    return (
+      <div className="mt-1 text-center">
+        <Spinner />
+      </div>
+    );
+  if (error) return <strong>`Error! ${error.message}`</strong>;
+
+  return data.launches.map((launch) => (
+    <LaunchItem key={launch.flight_number} launch={launch} />
+  ));
 };
 
 export default Launches;
