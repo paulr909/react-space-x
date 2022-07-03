@@ -6,7 +6,7 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="container bg">
       <Header />
       <Routes>
         <Route path="/" element={<Launches />} />

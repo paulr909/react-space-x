@@ -26,7 +26,7 @@ const Launch = () => {
   flight_number = parseInt(flight_number);
 
   const { loading, error, data } = useQuery(LAUNCH_QUERY, {
-    variables: { flight_number: flight_number },
+    variables: { flight_number },
   });
 
   if (loading)
@@ -61,7 +61,7 @@ const Launch = () => {
         </li>
       </ul>
 
-      <h4 className="my-3">Rocket Details</h4>
+      <h3 className="my-3">Rocket Details</h3>
       <ul className="list-group">
         <li className="list-group-item">
           Rocket ID: {data.launch.rocket.rocket_id}
